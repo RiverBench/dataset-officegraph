@@ -45,7 +45,7 @@
     # EuroVoc browser: https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?IRI=http://eurovoc.europa.eu/100141
     dcat:theme
       eurovoc:6030, # data collection
-      eurovoc:c_4b5a18f8 # office space
+      eurovoc:c_4b5a18f8, # office space
       eurovoc:c_b12a760a; # Internet of Things
 
     # Technical metadata
