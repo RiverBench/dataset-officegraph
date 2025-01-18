@@ -78,11 +78,11 @@
         rb:hasTemporalProperty <http://www.w3.org/ns/sosa/resultTime> ;
         rdfs:comment "Each stream element corresponds to one set of measurements from the weather station. Data was collected every 10 seconds."@en
     ] ;
-    rb:conformsToRdf11 "true" ; # true or false
-    rb:conformsToRdfStarDraft_20211217 "true" ; # true or false
-    rb:usesGeneralizedRdfDatasets "false" ; # true or false
-    rb:usesGeneralizedTriples "false" ; # true or false
-    rb:usesRdfStar "false" ; # true or false
+    rb:conformsToRdf11 true ; # true or false
+    rb:conformsToRdfStarDraft_20211217 true ; # true or false
+    rb:usesGeneralizedRdfDatasets false ; # true or false
+    rb:usesGeneralizedTriples false ; # true or false
+    rb:usesRdfStar false ; # true or false
     
     # Add any additional metadata here
     # Examples of useful properties:
