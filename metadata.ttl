@@ -30,32 +30,27 @@
         foaf:nick "adamskas" ;
         rdfs:comment "Author of benchmark dataset"@en ;
         rbdoc:hasDocWeight 1 ;
-    ],
-    dcterms:creator [
+    ] , [
             foaf:name "Roderick van der Weerdt" ;
             rdfs:comment "Co-author of original dataset"@en ;
             rbdoc:hasDocWeight 2 ;
-    ],
-    dcterms:creator [
+    ] , [
             foaf:name "Victor de Boer" ;
             rdfs:comment "Co-author of original dataset"@en ;
             rbdoc:hasDocWeight 3 ;
-    ],
-    dcterms:creator [
+    ] , [
             foaf:name "Ronald Siebes" ;
             rdfs:comment "Co-author of original dataset"@en ;
             rbdoc:hasDocWeight 4 ;
-    ],
-    dcterms:creator [
+    ] , [
             foaf:name "Ronnie Groenewold" ;
             rdfs:comment "Co-author of original dataset"@en ;
             rbdoc:hasDocWeight 5 ;
-    ],
-    dcterms:creator [
+    ] , [
             foaf:name "Frank van Harmelen" ;
             rdfs:comment "Co-author of original dataset"@en ;
             rbdoc:hasDocWeight 6 ;
-    ];
+    ] ;
     dcterms:source
         <https://doi.org/10.1007/978-3-031-60635-9_6> ,
         <https://github.com/RoderickvanderWeerdt/OfficeGraph/tree/main> ;
