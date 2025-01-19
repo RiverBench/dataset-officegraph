@@ -73,7 +73,7 @@
         stax:hasStreamType stax:flatTripleStream
     ] ;
     rb:hasStreamElementSplit [
-        a rb:TimeStreamElementSplit ;
+        a rb:TimeStreamElementSplit, rb:TopicStreamElementSplit ;
         # If your dataset is split by time, specify the temporal property:
         rb:hasTemporalProperty <http://www.w3.org/ns/sosa/resultTime> ;
         rdfs:comment "Each stream element corresponds to one set of measurements from the weather station. Data was collected every 10 seconds."@en ;
