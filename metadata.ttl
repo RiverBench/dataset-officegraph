@@ -17,11 +17,10 @@
     a rb:Dataset, dcat:Dataset ;
     dcterms:conformsTo <https://w3id.org/riverbench/schema/metadata> ;
     dcterms:identifier "officegraph" ;
-
-    dcterms:title "officegraph"@en ;
+    dcterms:title "OfficeGraph"@en ;
     dcterms:description """[OfficeGraph](https://github.com/RoderickvanderWeerdt/OfficeGraph/tree/main) is a real-world data of measurements from 444 IoT devices taken over 11 months. The devices are made up of 17 different sensor models which measure different properties. Data was taken in Dutch 7-story office building and consists of about 90 million RDF triples. See also the [paper](https://doi.org/10.1007/978-3-031-60635-9_6) for more details.
 
-    The elements in the dataset are ordered from oldest to newest by the measurement time (saref:hasTimestamp predicate)."""@en ;
+The elements in the dataset are ordered from oldest to newest by the measurement time (saref:hasTimestamp predicate)."""@en ;
     dcterms:issued "2025-01-18"^^xsd:date ;
 
     dcterms:license <https://spdx.org/licenses/CC-BY-4.0> ;
