@@ -12,9 +12,6 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# This file contains the manually written metadata for the dataset.
-# The IRI of the dataset here is temporary. Real IRIs are assigned
-# automatically in CI.
 
 :dataset
     a rb:Dataset, dcat:Dataset ;
@@ -22,50 +19,63 @@
     dcterms:identifier "officegraph" ;
 
     dcterms:title "officegraph"@en ;
-    dcterms:description """[OfficeGraph](https://github.com/RoderickvanderWeerdt/OfficeGraph/tree/main) is a real-world data of measurements from 444 IoT devices taken over 11 months. The devices are made up of 17 different sensor models which measure different properties. Data was taken in Dutch 7-story office building and consists of about 90 million RDF triples. See also the [paper](https://doi.org/10.1007/978-3-031-60635-9_6) for more details."""@en ;
+    dcterms:description """[OfficeGraph](https://github.com/RoderickvanderWeerdt/OfficeGraph/tree/main) is a real-world data of measurements from 444 IoT devices taken over 11 months. The devices are made up of 17 different sensor models which measure different properties. Data was taken in Dutch 7-story office building and consists of about 90 million RDF triples. See also the [paper](https://doi.org/10.1007/978-3-031-60635-9_6) for more details.
+
+    The elements in the dataset are ordered from oldest to newest by the measurement time (saref:hasTimestamp predicate)."""@en ;
     dcterms:issued "2025-01-18"^^xsd:date ;
 
-    # License and attribution
-    # SPDX license list: https://spdx.org/licenses/
-    # Do not include ".html" at the end of the SPDX license URL
-    # Example of a valid URL: https://spdx.org/licenses/CC-BY-4.0
     dcterms:license <https://spdx.org/licenses/CC-BY-4.0> ;
     dcterms:creator [
         foaf:name "Adam Skaskiewicz" ;
         foaf:nick "adamskas" ;
+        rdfs:comment "Author of benchmark dataset"@en ;
         rbdoc:hasDocWeight 1 ;
+    ],
+    dcterms:creator [
+            foaf:name "Roderick van der Weerdt" ;
+            rdfs:comment "Co-author of original dataset"@en ;
+            rbdoc:hasDocWeight 2 ;
+    ],
+    dcterms:creator [
+            foaf:name "Victor de Boer" ;
+            rdfs:comment "Co-author of original dataset"@en ;
+            rbdoc:hasDocWeight 3 ;
+    ],
+    dcterms:creator [
+            foaf:name "Ronald Siebes" ;
+            rdfs:comment "Co-author of original dataset"@en ;
+            rbdoc:hasDocWeight 4 ;
+    ],
+    dcterms:creator [
+            foaf:name "Ronnie Groenewold" ;
+            rdfs:comment "Co-author of original dataset"@en ;
+            rbdoc:hasDocWeight 5 ;
+    ],
+    dcterms:creator [
+            foaf:name "Frank van Harmelen" ;
+            rdfs:comment "Co-author of original dataset"@en ;
+            rbdoc:hasDocWeight 6 ;
     ];
-    # If applicable, add a link or multiples links to the original source of the dataset
-    dcterms:source 
+    dcterms:source
         <https://doi.org/10.1007/978-3-031-60635-9_6> ,
         <https://github.com/RoderickvanderWeerdt/OfficeGraph/tree/main> ;
     
-    # Themes from EuroVoc
-    # E.g., eurovoc:4267, eurovoc:7219
-    # Use only concepts (those without numbers in their names), 
-    # not domain concepts or concept schemes.
-    # EuroVoc browser: https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?IRI=http://eurovoc.europa.eu/100141
     dcat:theme
       eurovoc:6030, # data collection
       eurovoc:c_4b5a18f8, # office space
       eurovoc:c_b12a760a; # Internet of Things
 
-    # Technical metadata
-    # IRIs of the vocabularies and ontologies used in the dataset
     void:vocabulary
         <https://interconnectproject.eu/example/> ,
         <http://www.wurvoc.org/vocabularies/om-1.8/> ,
         <https://saref.etsi.org/saref4ener/> ,
         <https://saref.etsi.org/core/> ;
-    # Set to number of stream elements in the dataset
+
     rb:hasStreamElementCount  14930478 ;
-    # Stream type according to the RDF Stream Taxonomy (RDF-STaX)
-    # Each dataset must have two stream type usages: one for the grouped
-    # stream type and one for the flat stream type.
-    # Full list of stream types: https://w3id.org/stax/dev/taxonomy/
+
     stax:hasStreamTypeUsage [
         a stax:RdfStreamTypeUsage ;
-        rdfs:comment "The dataset can be viewed as a stream of graphs. Each graph corresponds to one set of observations from the weather station's sensors."@en ;
+        rdfs:comment "The dataset can be viewed as a stream of graphs. Each graph corresponds to one measurement from one sensor in the office building."@en ;
         stax:hasStreamType stax:subjectGraphStream
     ] , [
         a stax:RdfStreamTypeUsage ;
@@ -74,22 +84,18 @@
     ] ;
     rb:hasStreamElementSplit [
         a rb:TimeStreamElementSplit, rb:TopicStreamElementSplit ;
-        # If your dataset is split by time, specify the temporal property:
         rb:hasTemporalProperty <http://www.w3.org/ns/sosa/resultTime> ;
-        rdfs:comment "Each stream element corresponds to one set of measurements from the weather station. Data was collected every 10 seconds."@en ;
+        rdfs:comment "Each stream element corresponds to one measurement from one sensor in the office building."@en ;
         rb:hasSubjectShape [
             rdfs:comment "Target instances of any class."@en ;
             sh:targetSubjectsOf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
         ] ;
     ] ;
-    rb:conformsToRdf11 true ; # true or false
-    rb:conformsToRdfStarDraft_20211217 true ; # true or false
-    rb:usesGeneralizedRdfDatasets false ; # true or false
-    rb:usesGeneralizedTriples false ; # true or false
-    rb:usesRdfStar false ; # true or false
+    rb:conformsToRdf11 true ;
+    rb:conformsToRdfStarDraft_20211217 true ;
+    rb:usesGeneralizedRdfDatasets false ;
+    rb:usesGeneralizedTriples false ;
+    rb:usesRdfStar false ;
     
-    # Add any additional metadata here
-    # Examples of useful properties:
-    # dcat:temporalResolution, dcat:spatialResolutionInMeters,
-    # dcterms:language
+    dcat:temporalResolution "PT1M"^^xsd:duration ;
 .
