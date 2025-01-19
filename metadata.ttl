@@ -22,7 +22,7 @@
     dcterms:identifier "officegraph" ;
 
     dcterms:title "officegraph"@en ;
-    dcterms:description """[OfficeGraph](https://github.com/RoderickvanderWeerdt/OfficeGraph/tree/main) is a real-world data of measurements from 444 IoT devices  taken over 11 months. The devices are made up of 17 different sensor models which measure different properties. Data was taken in Dutch 7-story office building and consists of about 90 Million RDF triplets. See also the [paper](https://2024.eswc-conferences.org/wp-content/uploads/2024/04/146640427.pdf)."""@en ;
+    dcterms:description """[OfficeGraph](https://github.com/RoderickvanderWeerdt/OfficeGraph/tree/main) is a real-world data of measurements from 444 IoT devices taken over 11 months. The devices are made up of 17 different sensor models which measure different properties. Data was taken in Dutch 7-story office building and consists of about 90 million RDF triples. See also the [paper](https://doi.org/10.1007/978-3-031-60635-9_6) for more details."""@en ;
     dcterms:issued "2025-01-18"^^xsd:date ;
 
     # License and attribution
@@ -36,7 +36,9 @@
         rbdoc:hasDocWeight 1 ;
     ];
     # If applicable, add a link or multiples links to the original source of the dataset
-    dcterms:source <https://github.com/RoderickvanderWeerdt/OfficeGraph/tree/main> ;
+    dcterms:source 
+        <https://doi.org/10.1007/978-3-031-60635-9_6> ,
+        <https://github.com/RoderickvanderWeerdt/OfficeGraph/tree/main> ;
     
     # Themes from EuroVoc
     # E.g., eurovoc:4267, eurovoc:7219
@@ -52,11 +54,9 @@
     # IRIs of the vocabularies and ontologies used in the dataset
     void:vocabulary
         <https://interconnectproject.eu/example/> ,
-        <http://www.wikidata.org/entity/> ,
         <http://www.wurvoc.org/vocabularies/om-1.8/> ,
         <https://saref.etsi.org/saref4ener/> ,
-        <https://saref.etsi.org/core/> ,
-        <http://www.w3.org/2001/XMLSchema#> ;
+        <https://saref.etsi.org/core/> ;
     # Set to number of stream elements in the dataset
     rb:hasStreamElementCount  14930478 ;
     # Stream type according to the RDF Stream Taxonomy (RDF-STaX)
@@ -66,17 +66,21 @@
     stax:hasStreamTypeUsage [
         a stax:RdfStreamTypeUsage ;
         rdfs:comment "The dataset can be viewed as a stream of graphs. Each graph corresponds to one set of observations from the weather station's sensors."@en ;
-        stax:hasStreamType stax:graphStream
+        stax:hasStreamType stax:subjectGraphStream
     ] , [
         a stax:RdfStreamTypeUsage ;
         rdfs:comment "The dataset can be viewed as a flattened stream of triples."@en ;
         stax:hasStreamType stax:flatTripleStream
     ] ;
     rb:hasStreamElementSplit [
-        a rb:TimeStreamElementSplit ;
+        a rb:TimeStreamElementSplit, rb:TopicStreamElementSplit ;
         # If your dataset is split by time, specify the temporal property:
         rb:hasTemporalProperty <http://www.w3.org/ns/sosa/resultTime> ;
-        rdfs:comment "Each stream element corresponds to one set of measurements from the weather station. Data was collected every 10 seconds."@en
+        rdfs:comment "Each stream element corresponds to one set of measurements from the weather station. Data was collected every 10 seconds."@en ;
+        rb:hasSubjectShape [
+            rdfs:comment "Target instances of any class."@en ;
+            sh:targetSubjectsOf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+        ] ;
     ] ;
     rb:conformsToRdf11 true ; # true or false
     rb:conformsToRdfStarDraft_20211217 true ; # true or false
