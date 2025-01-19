@@ -66,7 +66,7 @@
     stax:hasStreamTypeUsage [
         a stax:RdfStreamTypeUsage ;
         rdfs:comment "The dataset can be viewed as a stream of graphs. Each graph corresponds to one set of observations from the weather station's sensors."@en ;
-        stax:hasStreamType stax:graphStream
+        stax:hasStreamType stax:subjectGraphStream
     ] , [
         a stax:RdfStreamTypeUsage ;
         rdfs:comment "The dataset can be viewed as a flattened stream of triples."@en ;
@@ -76,7 +76,11 @@
         a rb:TimeStreamElementSplit ;
         # If your dataset is split by time, specify the temporal property:
         rb:hasTemporalProperty <http://www.w3.org/ns/sosa/resultTime> ;
-        rdfs:comment "Each stream element corresponds to one set of measurements from the weather station. Data was collected every 10 seconds."@en
+        rdfs:comment "Each stream element corresponds to one set of measurements from the weather station. Data was collected every 10 seconds."@en ;
+        rb:hasSubjectShape [
+            rdfs:comment "Target instances of any class."@en ;
+            sh:targetSubjectsOf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+        ] ;
     ] ;
     rb:conformsToRdf11 true ; # true or false
     rb:conformsToRdfStarDraft_20211217 true ; # true or false
