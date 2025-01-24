@@ -83,7 +83,7 @@ Additional data such as data about devices taking measurements and rooms in the 
         rb:hasTemporalProperty <http://www.w3.org/ns/sosa/resultTime> ;
         rdfs:comment "Each stream element corresponds to one measurement from one sensor in the office building."@en ;
         rb:hasSubjectShape [
-            rdfs:comment "Target instances of any class."@en ;
+            rdfs:comment "Target instances of class `saref:Measurement`."@en ;
             sh:targetClass <https://saref.etsi.org/core/Measurement> ;
         ] ;
     ] ;
