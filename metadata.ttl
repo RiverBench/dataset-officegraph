@@ -84,7 +84,7 @@ Additional data such as data about devices taking measurements and rooms in the 
         rdfs:comment "Each stream element corresponds to one measurement from one sensor in the office building."@en ;
         rb:hasSubjectShape [
             rdfs:comment "Target instances of any class."@en ;
-            sh:targetSubjectsOf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+            sh:targetClass <https://saref.etsi.org/core/Measurement> ;
         ] ;
     ] ;
     rb:conformsToRdf11 true ;
