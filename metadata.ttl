@@ -22,7 +22,7 @@
 
 The elements in the dataset are ordered from oldest to newest by the measurement time (saref:hasTimestamp predicate).
 
-Additional data such as data about devices taking measurements and rooms in the building as well as copy of this dataset can be found [here](https://zenodo.org/records/14690082)."""@en ;
+Additional data such as data about devices taking measurements and rooms in the building as well as copy of this dataset can be found [here](https://doi.org/10.5281/zenodo.14690081)."""@en ;
     dcterms:issued "2025-01-18"^^xsd:date ;
 
     dcterms:license <https://spdx.org/licenses/CC-BY-4.0> ;
